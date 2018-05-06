@@ -1,0 +1,73 @@
+<html>
+<head>
+   <title>Ajax Simple</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+   $("#caja1").hover(function(evento){
+      evento.preventDefault();
+      $("#cargando1").css("display", "inline");
+      $("#destino").load("Ejer2.php", function(){
+         $("#cargando1").css("display", "none");
+      });
+   });
+   $("#caja2").hover(function(evento){
+      evento.preventDefault();
+      $("#cargando2").css("display", "inline");
+      $("#destino").load("Ejer2.php", function(){
+         $("#cargando2").css("display", "none");
+      });
+   });
+   $("#caja3").hover(function(evento){
+      evento.preventDefault();
+      $("#cargando3").css("display", "inline");
+      $("#destino").load("Ejer2.php", function(){
+         $("#cargando3").css("display", "none");
+      });
+   });
+   $("#caja4").hover(function(evento){
+      evento.preventDefault();
+      $("#cargando4").css("display", "inline");
+      $("#destino").load("Ejer2.php", function(){
+         $("#cargando4").css("display", "none");
+      });
+   });
+})
+</script>
+<style>
+  .caja{
+    width: 50%;
+    height: 48%;
+    float: left;
+  }
+  #caja1{
+    background-color: yellow;
+  }
+  #caja2{
+    background-color: blue;
+  }
+  #caja3{
+    background-color: pink;
+  }
+  #caja4{
+    background-color: brown;
+  }
+</style>
+</head>
+
+<body>
+  <div id="caja1" class="caja"></div>
+  <div id="caja2" class="caja"></div>
+  <div id="caja3" class="caja"></div>
+  <div id="caja4" class="caja"></div>
+<br>
+<br>
+<div id="cargando1" style="display:none; color: yellow;">CAJA AMARILLA</div>
+<div id="cargando2" style="display:none; color: blue;">CAJA AZUL</div>
+<div id="cargando3" style="display:none; color: pink;">CAJA ROSA</div>
+<div id="cargando4" style="display:none; color: brown;">CAJA MARRON</div>
+<br>
+<div id="destino"></div>
+
+</body>
+</html>

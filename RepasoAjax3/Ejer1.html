@@ -1,0 +1,29 @@
+<html>
+<head>
+   <title>Ajax Simple</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+   $("#enlaceajax").click(function(evento){
+      evento.preventDefault();
+      $("#cargando").css("display", "inline");
+      $("#destino").load("Ejer1.php", function(){
+         $("#cargando").css("display", "none");
+      });
+   });
+})
+</script>
+</head>
+
+<body>
+Ejercicio 1 de Sergio. Hola que tal?
+<br>
+<br>
+
+<a href="#" id="enlaceajax">Haz clic!</a>
+<div id="cargando" style="display:none; color: green;"><img src="http://www.gifde.com/gif/otros/decoracion/cargando-loading/cargando-loading-045.gif"></div>
+<br>
+<div id="destino"></div>
+
+</body>
+</html>

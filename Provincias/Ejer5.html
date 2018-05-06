@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          min-width: 160px;
+          overflow: auto;
+          z-index: 1;
+      }
+      .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+      }
+      .dropdown a:hover {background-color: #ddd}
+      .show {display:block;}
+      #datos {
+        text-align: center;
+      }
+      </style>
+  </head>
+  <body>
+    <div class="dropdown">
+     <button onclick="myFunction()" class="dropbtn">Andalucia</button></br>
+       <div id="myDropdown" class="dropdown-content">
+         <button id="Huelva" type="button" onclick="municipiosHuelva()">Huelva</button></br>
+         <button id="Sevilla" type="button" onclick="municipiosSevilla()">Sevilla</button></br>
+         <button id="Cadiz" type="button" onclick="municipiosCadiz()">Cadiz</button></br>
+         <button id="Malaga" type="button" onclick="municipiosMalaga()">Malaga</button></br>
+         <button id="Jaen" type="button" onclick="municipiosJaen()">Jaen</button></br>
+         <button id="Cordoba" type="button" onclick="municipiosCordoba()">Cordoba</button></br>
+         <button id="Granada" type="button" onclick="municipiosGranada()">Granada</button></br>
+         <button id="Almeria" type="button" onclick="municipiosAlmeria()">Almeria</button></br>
+       </div>
+     </div>
+     <div id="datos">
+     </div>
+
+    <script>
+      function myFunction() {
+             document.getElementById("myDropdown").classList.toggle("show");
+         }
+         window.onclick = function(event) {
+           if (!event.target.matches('.dropbtn')) {
+             var dropdowns = document.getElementsByClassName("dropdown-content");
+             var i;
+             for (i = 0; i < dropdowns.length; i++) {
+               var openDropdown = dropdowns[i];
+               if (openDropdown.classList.contains('show')) {
+                 openDropdown.classList.remove('show');
+               }
+             }
+           }
+         }
+      function municipiosHuelva() {
+        limpiar();
+        var arrayNombres = new Array();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            // document.getElementById("Huelva").innerHTML =
+            var arraySplit = this.responseText.split("&");
+            for (var i = 0; i < arraySplit.length; i++) {
+              var aux = arraySplit[i].split(":");
+              arrayNombres.push(aux[1]);
+              // document.write(arrayNombres[i]+"<br>");
+              // document.getElementById("datos").innerHTML="";
+              var parrafo = document.createElement("p");
+              var contenido = document.createTextNode(arrayNombres[i]+"\n");
+              parrafo.appendChild(contenido);
+              var saltoBr = document.createElement("br");
+              document.getElementById("datos").appendChild(contenido);
+              document.getElementById("datos").appendChild(saltoBr);
+            }
+          }
+        };
+        xhttp.open("GET", "huelva.txt", true);
+        xhttp.send();
+      }
+
+      function municipiosSevilla() {
+        limpiar();
+        var arrayNombres = new Array();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var arraySplit = this.responseText.split("&");
+            for (var i = 0; i < arraySplit.length; i++) {
+              var aux = arraySplit[i].split(":");
+              arrayNombres.push(aux[1]);
+              // document.write(arrayNombres[i]+"<br>");
+              // document.getElementById("datos").innerHTML="";
+              var parrafo = document.createElement("p");
+              var contenido = document.createTextNode(arrayNombres[i]+"\n");
+              parrafo.appendChild(contenido);
+              var saltoBr = document.createElement("br");
+              document.getElementById("datos").appendChild(contenido);
+              document.getElementById("datos").appendChild(saltoBr);
+            }
+          }
+        };
+        xhttp.open("GET", "sevilla.txt", true);
+        xhttp.send();
+      }
+
+      function municipiosCadiz() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("Cadiz").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "cadiz.txt", true);
+        xhttp.send();
+      }
+
+      function municipiosMalaga() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("Malaga").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "malaga.txt", true);
+        xhttp.send();
+      }
+
+      function municipiosJaen() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("Jaen").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "jaen.txt", true);
+        xhttp.send();
+      }
+
+      function municipiosCordoba() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("Cordoba").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "cordoba.txt", true);
+        xhttp.send();
+      }
+
+      function municipiosGranada() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("Granada").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "granada.txt", true);
+        xhttp.send();
+      }
+      function municipiosAlmeria() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("Almeria").innerHTML =
+            this.responseText;
+          }
+        };
+        xhttp.open("GET", "almeria.txt", true);
+        xhttp.send();
+      }
+      function limpiar(){
+        var d= document.getElementById("datos");
+        while(d.hasChildNodes())
+        d.removeChild(d.firstChild);
+      }
+    </script>
+
+  </body>
+</html>
